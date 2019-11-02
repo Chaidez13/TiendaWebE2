@@ -2,7 +2,7 @@
 const getPrecio = function(nameG){
     const precios = [
 		{
-			name: 'halo-5-guardians',
+			name: 'destiny-2',
 			price: 499.99
 		},
 		{
@@ -18,24 +18,24 @@ const getPrecio = function(nameG){
 			price: 349.99
 		},
 		{
-			name: '',
-			price: 0
+			name: 'marvels-spider-man',
+			price: 499.99
 		},
 		{
-			name: '',
-			price: 0
+			name: 'gears-5',
+			price: 1099.99
 		},
 		{
-			name: '',
-			price: 0
+			name: 'mortal-kombat-11',
+			price: 999.99
 		},
 		{
-			name: '',
-			price: 0
+			name: 'jedi-the-fallen-order',
+			price: 1299.99
 		},
 		{
-			name: '',
-			price: 0
+			name: 'planet-zoo',
+			price: 599.99
 		},
     ]
     for (let i = 0; i < precios.length; i++) {
@@ -61,7 +61,7 @@ const getGame = function (name){
 }
 
 const createGameView = function(game){
-    const screen = document.querySelector('.product-container')
+    const screen = document.querySelector('#pc-c')
     const productDiv = document.createElement('div')
     productDiv.classList.add('producto')
     productDiv.appendChild(createImageGame(game.background_image))
@@ -102,7 +102,16 @@ const createButton = function(game){
     const button = document.createElement('button')
 
     button.addEventListener('click', function(){
-        console.log('')
+        console.log(game)
+        var gameN = []
+        var list = JSON.parse(localStorage.getItem('games'))
+        if(list==null){
+            gameN[0] = game;
+        }else{
+            gameN = list
+            gameN[list.length] = game;
+        }
+        localStorage.setItem('games', JSON.stringify(gameN))
     })
 
     button.innerHTML = '<i class="fas fa-shopping-cart"></i>'
@@ -147,12 +156,26 @@ const userLogout = function(){
 }
 
 const init = function(){
-    getGame('halo-5')
+    getGame('destiny-2')
     getGame('borderlands-3')
     getGame('fortnite')
 
     userLog()
 }
+
+const initList = function(){
+    getGame('destiny-2')
+    getGame('borderlands-3')
+    getGame('fortnite')
+    getGame('minecraft')
+    getGame('marvels-spider-man')
+    getGame('gears-5')
+    getGame('mortal-kombat-11')
+    getGame('jedi-the-fallen-order')
+    getGame('planet-zoo')
+
+    userLog()
+} 
 
 const initLogin = function(){
     const register_btn = document.querySelector('.logbutton')
@@ -163,11 +186,39 @@ const initLogin = function(){
 }
 
 const initCart = function(){
-
+    var games =  JSON.parse(localStorage.getItem('games'))
+    const cartdiv = document.querySelector('.cart-list')
+    const totalPP = document.querySelector('#total-pay')
+    var precio;
+    var total = 0;
+    console.log(games)
+    for (let i = 0; i < games.length; i++) {
+        precio = getPrecio(games[i].slug)
+        total = (total + precio);
+        cartdiv.appendChild(createCartView(games[i],precio))
+    }
+    totalPP.innerHTML = '$' + total.toFixed(2) + ' MXN'
     userLog()
 }
 
-
-
-
-
+const createCartView = function(game, precio){
+    const listdiv = document.createElement('div')
+    listdiv.classList.add('list')
+    const proddiv = document.createElement('div')
+    proddiv.classList.add('product-add')
+    const mindiv = document.createElement('div')
+    mindiv.classList.add('cart-min')
+    const titlediv = document.createElement('div')
+    titlediv.classList.add('product-title')
+    const imageGame = document.createElement('img')
+    imageGame.src = game.background_image
+    const cost = document.createElement('p')
+    cost.innerHTML = '$' + precio + ' MXN'
+    mindiv.appendChild(imageGame)
+    titlediv.innerHTML = '<h2>'+game.name+'</h2>'
+    proddiv.appendChild(mindiv)
+    proddiv.appendChild(titlediv)
+    proddiv.appendChild(cost)
+    listdiv.appendChild(proddiv)
+    return listdiv
+}

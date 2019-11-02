@@ -1,12 +1,17 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<meta charset="utf-8">
-	<title>Gaymstop Shopping Cart</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Gaymstop List</title>
 	<link rel="stylesheet" type="text/css" href="Style.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
 	<link href="https://fonts.googleapis.com/css?family=Barlow&display=swap" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Staatliches&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  	<script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script><link href="https://fonts.googleapis.com/css?family=Staatliches&display=swap" rel="stylesheet">
 </head>
 <body>
 	<header class="header-cart">
@@ -15,33 +20,29 @@
 				<nav class="menu">
 					<ul>
 						<li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
-						<li><a class="selected" href="#"><i class="fas fa-shopping-cart"></i> Cart</a></li>
+						<li><a href="cart.html"><i class="fas fa-shopping-cart"></i> Cart</a></li>
 						<li><a href="login.html" id="user-a"><i class="fas fa-user-circle"></i> Login</a></li>
 						<li><a href="#" id="logout"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
 					</ul>
 				</nav>
 			</div>
-	</header>
-	<main>
-		<div class="cart-list">
-			
-			<div class="pay-total"> 
-				<h2 id="total-pay"></h2>
-				<button type="button">COMPRAR</i></button> 
-			</div>
-		</div>	
+    </header>
+    <main>
+		<div class="product-container" id="pc-c">
+
+		</div>
 	</main>
-	<footer class="footer">
+    <footer class="footer">
 		<h2>ALL RIGHTS RESERVED GAYMSTOP 2019</h2>
 		<div class="social"> 
 			<i class="fab fa-facebook"></i>
 			<i class="fab fa-twitter-square"></i>
 			<i class="fab fa-youtube-square"></i>
 		</div>
-	</footer>
-	<script src="script.js"></script>
-	<script>
-		initCart()
-	</script>
+    </footer>
+    <script src="script.js"></script>
+    <script>
+        initList()
+    </script>
 </body>
 </html>

@@ -79,6 +79,18 @@ footer{
 #logout{
 	display: none;
 }
+main h4{
+	max-width: 1350px;
+	font-size: 30px;
+	border-bottom: 1px solid rgba(0,0,0,0.33);
+	padding: 0 20px;
+	margin: 10px auto 0;
+	font-family: 'Barlow', sans-serif;
+}
+main a{
+	color: #2e2e2e;
+	text-decoration: none;
+}
 .product-container{
 	display: flex;
 	align-items: center;
@@ -178,11 +190,17 @@ footer{
 	height: 100%;
 	font-family: 'Barlow', sans-serif;
 	background-color: #fafafa;
+	max-width: 1500px;
+	margin: 0 auto;
 }
 .list{
 	display: flex;
 	flex-direction: column;
 	height: 100%;
+	margin-top: 15px;
+}
+.list:last-child{
+	margin-bottom: 50px;
 }
 .product-add{
 	display: flex;
@@ -207,7 +225,6 @@ footer{
 	width: 40%;
 	text-align: center;
 	border-right: 1px solid #000;
-
 }
 .pay-total{
 	margin: 0 auto;
@@ -225,6 +242,10 @@ footer{
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
+}
+.pay-total button:hover{
+	background-color: #ffdd00;
+	color: #3B3A3A;
 }
 .login-main{
 	max-width: 300px;
