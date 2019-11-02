@@ -24,10 +24,10 @@
 	</header>
 	<main>
 		<div class="cart-list">
-			
+
 			<div class="pay-total"> 
 				<h2 id="total-pay"></h2>
-				<button type="button">COMPRAR</i></button> 
+				<button type="button" id="btn-buy">COMPRAR</i></button> 
 			</div>
 		</div>	
 	</main>
@@ -38,10 +38,16 @@
 			<i class="fab fa-twitter-square"></i>
 			<i class="fab fa-youtube-square"></i>
 		</div>
+		<p>Carretera al Sur KM 5.5., Apartado Postal 19-,B, C.P. 23080, La Paz Baja California Sur, México. Teléfono (612) 12 388 00</p>
 	</footer>
 	<script src="script.js"></script>
 	<script>
 		initCart()
+		const btnbuy = document.querySelector('#btn-buy')
+		btnbuy.addEventListener('click', function(){
+			localStorage.removeItem('games')
+			location.reload()
+		})
 	</script>
 </body>
 </html>

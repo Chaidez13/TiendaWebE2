@@ -96,6 +96,28 @@ const createDataGame = function(game){
     return infoDiv
 }
 
+const createCartView = function(game, precio){
+    const listdiv = document.createElement('div')
+    listdiv.classList.add('list')
+    const proddiv = document.createElement('div')
+    proddiv.classList.add('product-add')
+    const mindiv = document.createElement('div')
+    mindiv.classList.add('cart-min')
+    const titlediv = document.createElement('div')
+    titlediv.classList.add('product-title')
+    const imageGame = document.createElement('img')
+    imageGame.src = game.background_image
+    const cost = document.createElement('p')
+    cost.innerHTML = '$' + precio + ' MXN'
+    mindiv.appendChild(imageGame)
+    titlediv.innerHTML = '<h2>'+game.name+'</h2>'
+    proddiv.appendChild(mindiv)
+    proddiv.appendChild(titlediv)
+    proddiv.appendChild(cost)
+    listdiv.appendChild(proddiv)
+    return listdiv
+}
+
 const createButton = function(game){
     const divBTn = document.createElement('div')
     divBTn.classList.add('control')
@@ -112,6 +134,7 @@ const createButton = function(game){
             gameN[list.length] = game;
         }
         localStorage.setItem('games', JSON.stringify(gameN))
+        window.alert(game.name + " added to cart")
     })
 
     button.innerHTML = '<i class="fas fa-shopping-cart"></i>'
@@ -202,24 +225,4 @@ const initCart = function(){
     
 }
 
-const createCartView = function(game, precio){
-    const listdiv = document.createElement('div')
-    listdiv.classList.add('list')
-    const proddiv = document.createElement('div')
-    proddiv.classList.add('product-add')
-    const mindiv = document.createElement('div')
-    mindiv.classList.add('cart-min')
-    const titlediv = document.createElement('div')
-    titlediv.classList.add('product-title')
-    const imageGame = document.createElement('img')
-    imageGame.src = game.background_image
-    const cost = document.createElement('p')
-    cost.innerHTML = '$' + precio + ' MXN'
-    mindiv.appendChild(imageGame)
-    titlediv.innerHTML = '<h2>'+game.name+'</h2>'
-    proddiv.appendChild(mindiv)
-    proddiv.appendChild(titlediv)
-    proddiv.appendChild(cost)
-    listdiv.appendChild(proddiv)
-    return listdiv
-}
+
