@@ -186,6 +186,7 @@ const initLogin = function(){
 }
 
 const initCart = function(){
+    userLog()
     var games =  JSON.parse(localStorage.getItem('games'))
     const cartdiv = document.querySelector('.cart-list')
     const totalPP = document.querySelector('#total-pay')
@@ -198,7 +199,7 @@ const initCart = function(){
         cartdiv.appendChild(createCartView(games[i],precio))
     }
     totalPP.innerHTML = '$' + total.toFixed(2) + ' MXN'
-    userLog()
+    
 }
 
 const createCartView = function(game, precio){
