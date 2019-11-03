@@ -3,6 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<title>GAYMSTOP</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" type="text/css" href="Style.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
 	<link href="https://fonts.googleapis.com/css?family=Barlow&display=swap" rel="stylesheet">
@@ -14,8 +15,7 @@
     $(document).ready(function(){
       $('.slider').bxSlider({
 		  auto: true,
-		  stopAutoOnClick: false,
-		  pager: true,
+		  stopAutoOnClick: true,
 		  infiniteLoop: true,
 		  slideWidth: 1200,
 		  speed: 600
@@ -29,6 +29,8 @@
 	<header class="header">
 		<div class="top-Menu">
 			<div class="logo"> GAYMSTOP </div>
+			<input class="bm" type="checkbox">
+			<div class="bmm"><i class="fas fa-bars"></i></div>
 			<nav class="menu">
 				<ul>
 					<li><a class="selected" href="#"><i class="fas fa-home"></i> Home</a></li>
@@ -38,13 +40,15 @@
 				</ul>
 			</nav>
 		</div>
+	</header>
+	<div class="div-slider">
 		<div class="slider">
 	    	<div class="slider-cont"> <img src="src/sl1.jpg"> </div>
 	    	<div class="slider-cont"> <img src="src/sl2.jpg"> </div>
 			<div class="slider-cont"> <img src="src/sl3.jpg"> </div>
 			<div class="slider-cont"> <img src="src/sl4.jpg"> </div>
 	  	</div>
-	</header>
+	</div>
 	<main>
 		<a href="List.html"><h4><i class="fas fa-list"></i> See More</h4></a>
 		<div class="product-container" id="pc-c">

@@ -179,14 +179,14 @@ const userLogout = function(){
 }
 
 const init = function(){
+    userLog()
     getGame('destiny-2')
     getGame('borderlands-3')
     getGame('fortnite')
-
-    userLog()
 }
 
 const initList = function(){
+    userLog()
     getGame('destiny-2')
     getGame('borderlands-3')
     getGame('fortnite')
@@ -196,8 +196,6 @@ const initList = function(){
     getGame('mortal-kombat-11')
     getGame('jedi-the-fallen-order')
     getGame('planet-zoo')
-
-    userLog()
 } 
 
 const initLogin = function(){
@@ -215,14 +213,14 @@ const initCart = function(){
     const totalPP = document.querySelector('#total-pay')
     var precio;
     var total = 0;
-    console.log(games)
-    for (let i = 0; i < games.length; i++) {
-        precio = getPrecio(games[i].slug)
-        total = (total + precio);
-        cartdiv.appendChild(createCartView(games[i],precio))
+    if(games!=null){
+        for (let i = 0; i < games.length; i++) {
+            precio = getPrecio(games[i].slug)
+            total = (total + precio);
+            cartdiv.appendChild(createCartView(games[i],precio))
+        }
+        totalPP.innerHTML = '$' + total.toFixed(2) + ' MXN'
     }
-    totalPP.innerHTML = '$' + total.toFixed(2) + ' MXN'
-    
 }
 
 
