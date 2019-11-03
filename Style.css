@@ -19,11 +19,8 @@ main{
 .bx-wrapper{
 	margin: 40px auto;
 }
-.slider-cont{
-	height:	450px;
-}
 .menu{
-	width: 89%;
+	width: 87%;
 	height: 100%;
 	font-family: 'Barlow', sans-serif;
 	display: inline-block;
